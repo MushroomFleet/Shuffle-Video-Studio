@@ -36,6 +36,7 @@ pip install proglog
 pip install tqdm
 pip install requests
 pip install av
+pip install psutil
 
 echo Checking CUDA availability...
 python -c "import torch; print('CUDA Available:', torch.cuda.is_available()); print('CUDA Device:', torch.cuda.get_device_name(0) if torch.cuda.is_available() else 'None')"
