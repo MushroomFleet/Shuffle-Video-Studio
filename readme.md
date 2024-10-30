@@ -1,5 +1,3 @@
-Okay, I've updated the readme to remove the references to the files you mentioned:
-
 # Video Shuffle Studio
 
 A suite of tools for splitting, shuffling, and rejoining video clips with both CPU and GPU-accelerated options.
