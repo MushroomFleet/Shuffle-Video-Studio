@@ -2,7 +2,7 @@
 
 A suite of tools for splitting, shuffling, and rejoining video clips with both CPU and GPU-accelerated options.
 
-Full Video Explainer: https://www.youtube.com/watch?v=z1JfE5iRh44
+Full Video Explainer: https://www.youtube.com/watch?v=z1JfE5iRh44 < br/>
 Example Video Output: https://www.youtube.com/watch?v=ElKTb3J2OkI
 (music added in post, central frame is the output)
 
