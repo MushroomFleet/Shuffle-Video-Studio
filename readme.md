@@ -6,7 +6,8 @@ A suite of tools for splitting, shuffling, and rejoining video clips with both C
 - Example Video Output: https://www.youtube.com/watch?v=ElKTb3J2OkI
 - (music added in post, central frame is the output)
 
-- Added script to convert Mochi video outputs from ComfyUI into the format SVS Splitter creates
+## update 1
+- Novemeber 1st '24: Added script to convert Mochi video outputs from ComfyUI into the format SVS Splitter creates
 - This allows AI output videos (of the same dimensions) to be shuffled and joined with SVS studio.
 - https://github.com/MushroomFleet/Shuffle-Video-Studio/blob/main/Comfy-Convert/comfyoutput-2-splits.md
 
