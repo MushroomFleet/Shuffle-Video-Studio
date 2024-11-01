@@ -2,8 +2,10 @@
 
 A suite of tools for splitting, shuffling, and rejoining video clips with both CPU and GPU-accelerated options.
 
-- Full Video Explainer: https://www.youtube.com/watch?v=z1JfE5iRh44
-- Example Video Output: https://www.youtube.com/watch?v=ElKTb3J2OkI
+- Full Video Explainer: https://www.youtube.com/watch?v=z1JfE5iRh44 (Walkthrough)
+- Sony pc110e-pal Output: https://www.youtube.com/watch?v=ElKTb3J2OkI
+- Sony dcr-trv310 Output: https://www.youtube.com/watch?v=4XrAMXHPjBM
+- AI Gen Video Output: https://www.youtube.com/watch?v=4CXV-lMXy7c (Mochi1 Preview)
 - (music added in post, central frame is the output)
 
 ## update 1
