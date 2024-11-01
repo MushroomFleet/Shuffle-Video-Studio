@@ -29,6 +29,9 @@ This utility helps rename video files from a pattern of `[prefix]_00000.mp4` to 
 
 ## Usage
 
+- place all videos in this folder for renaming
+- after renaming, move them into a new named folder in SVS root, for shuffling & joining.
+
 ### Method 1: Using the Batch File (Recommended)
 
 1. Double-click `rename_files.bat`
