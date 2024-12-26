@@ -1,4 +1,5 @@
 # Video Shuffle Studio
+![Demo UI](https://raw.githubusercontent.com/MushroomFleet/Shuffle-Video-Studio/main/images/SVS-webUI.png)
 
 A suite of tools for splitting, shuffling, and rejoining video clips with both CPU and GPU-accelerated options. Now includes a user-friendly Web Interface.
 
