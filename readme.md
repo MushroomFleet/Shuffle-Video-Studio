@@ -8,6 +8,7 @@ A suite of tools for splitting, shuffling, and rejoining video clips with both C
 - Sony dcr-trv310 Output: https://www.youtube.com/watch?v=4XrAMXHPjBM
 - AI Gen Video Output: https://www.youtube.com/watch?v=4CXV-lMXy7c (Mochi1 Preview)
 - (music added in post, central frame is the output)
+- Helldivers2 with AI Music https://www.youtube.com/watch?v=uTzoe-NEbzk
 
 ## Recent Updates
 - December 26th '24: Added Gradio-based Web Interface for easier operation
