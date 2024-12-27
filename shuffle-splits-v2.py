@@ -8,6 +8,37 @@ from tqdm import tqdm
 import psutil
 import time
 from datetime import datetime
+from color_shuffle import color_based_shuffle  # Import the new color shuffling module
+
+def print_shuffle_help():
+    """Print detailed help information about shuffle modes"""
+    print("\nShuffle Mode Details:")
+    print("=====================")
+    print("\n1. Simple Shuffle")
+    print("   - Randomly renames clips with hex codes")
+    print("   - Fast and memory-efficient")
+    print("   - Good for basic randomization")
+    
+    print("\n2. Size Reward Shuffle")
+    print("   - Analyzes file sizes to identify high-quality clips")
+    print("   - Keeps a specified percentage of larger files")
+    print("   - Best for quality-based selection")
+    
+    print("\n3. Color Similarity Shuffle")
+    print("   - Groups clips with similar color palettes")
+    print("   - Analyzes dominant colors in each clip")
+    print("   - Creates visually cohesive sequences")
+    print("   - Good for artistic/aesthetic arrangements")
+    
+    print("\n4. Color Transition Shuffle")
+    print("   - Creates smooth color transitions")
+    print("   - Available transitions:")
+    print("     * Rainbow: Full spectrum color progression")
+    print("     * Sunset: Warm orange to cool purple transition")
+    print("     * Ocean: Light to deep blue progression")
+    print("   - Best for creating visual narratives")
+    
+    print("\nNote: Color-based modes require more processing time")
 
 def get_valid_folder(prompt, must_exist=True):
     """Get and validate folder path from user"""
@@ -166,11 +197,16 @@ def size_reward_shuffle(input_folder, output_folder):
 
 def main():
     start_time = time.time()
-    print(f"Split Clips Shuffler v2.0 - {datetime.now().strftime('%Y-%m-%d %H:%M:%S')}")
+    print(f"Split Clips Shuffler v2.1 - {datetime.now().strftime('%Y-%m-%d %H:%M:%S')}")
     print("=========================")
     print(f"System Memory: {psutil.virtual_memory().total / (1024**3):.1f} GB")
     print(f"Available Memory: {psutil.virtual_memory().available / (1024**3):.1f} GB")
     print("=========================")
+    
+    # Show help text
+    print("\nWould you like to see detailed information about shuffle modes?")
+    if input("Show help? (y/n): ").lower().strip() == 'y':
+        print_shuffle_help()
     
     # Get input folder
     print("\nInput Folder Selection")
@@ -186,23 +222,47 @@ def main():
     print("\nAvailable shuffle methods:")
     print("1. Simple Shuffle (Random hex renaming)")
     print("2. Size Reward Shuffle (Size-based analysis with customizable reward percentage)")
+    print("3. Color Similarity Shuffle (Sort by dominant colors)")
+    print("4. Color Transition Shuffle (Create smooth color transitions)")
     print("=========================")
     
     while True:
         try:
-            choice = int(input("\nSelect shuffle method (1 or 2): "))
-            if choice in [1, 2]:
+            choice = int(input("\nSelect shuffle method (1-4): "))
+            if choice in [1, 2, 3, 4]:
                 break
-            print("Please enter 1 or 2")
+            print("Please enter a number between 1 and 4")
         except ValueError:
             print("Please enter a valid number")
     
     if choice == 1:
         print("\nExecuting Simple Shuffle...")
         simple_shuffle(input_folder, output_folder)
-    else:
+    elif choice == 2:
         print("\nExecuting Size Reward Shuffle...")
         size_reward_shuffle(input_folder, output_folder)
+    elif choice == 3:
+        print("\nExecuting Color Similarity Shuffle...")
+        color_based_shuffle(input_folder, output_folder, mode="similarity")
+    else:
+        print("\nExecuting Color Transition Shuffle...")
+        print("\nSelect transition type:")
+        print("1. Rainbow")
+        print("2. Sunset")
+        print("3. Ocean")
+        
+        while True:
+            try:
+                transition_choice = int(input("\nSelect transition type (1-3): "))
+                if transition_choice in [1, 2, 3]:
+                    break
+                print("Please enter a number between 1 and 3")
+            except ValueError:
+                print("Please enter a valid number")
+        
+        transition_types = {1: "rainbow", 2: "sunset", 3: "ocean"}
+        color_based_shuffle(input_folder, output_folder, mode="transition", 
+                          transition_type=transition_types[transition_choice])
     
     elapsed_time = time.time() - start_time
     print(f"\nOperation complete! Total time: {elapsed_time:.1f} seconds")
