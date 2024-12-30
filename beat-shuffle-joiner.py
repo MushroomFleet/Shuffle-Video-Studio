@@ -90,13 +90,16 @@ def join_videos_with_audio(input_folder, audio_file):
         video_duration = final_clip.duration
         
         print(f"\nVideo duration: {video_duration:.2f} seconds")
+        print(f"Audio duration: {audio_duration:.2f} seconds")
+        
+        # Handle duration mismatch
         if video_duration > audio_duration:
-            print(f"Warning: Video ({video_duration:.2f}s) is longer than audio ({audio_duration:.2f}s)")
-            print("Audio will be extended to match video length")
-            audio_clip = audio_clip.loop(duration=video_duration)
+            print(f"\nVideo ({video_duration:.2f}s) is longer than audio ({audio_duration:.2f}s)")
+            print("Truncating video to match audio length")
+            final_clip = final_clip.subclip(0, audio_duration)
         elif video_duration < audio_duration:
-            print(f"Warning: Audio ({audio_duration:.2f}s) is longer than video ({video_duration:.2f}s)")
-            print("Audio will be cut to match video length")
+            print(f"Audio ({audio_duration:.2f}s) is longer than video ({video_duration:.2f}s)")
+            print("Truncating audio to match video length")
             audio_clip = audio_clip.subclip(0, video_duration)
         
         # Add audio to video
